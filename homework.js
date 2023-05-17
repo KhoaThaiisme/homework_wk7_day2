@@ -65,10 +65,14 @@ const hwPerson = {
 
 // console.log(hwPerson.shakes instanceof Array)
 
-const peopleFoods = (obj) => {
-    for(let [k, v] of Object.entries(obj)) {
-        console.log(`${k}:${v}`)
-    }
+// const peopleFoods = (obj) => {
+//     for(let [k, v] of Object.entries(obj)) {
+//         console.log(`${k}:${v}`)
+//     }if(typeof k === typeof obj){
+//         for(let [b,c] of Object.entries(obj)){
+//             console.log(`${b}:${c}`)
+//         }
+//     }
     // for(let [w, v2] of Object.entries(obj.values)) {
     //     console.log(`${w} : ${v2}`)
     // }
@@ -76,6 +80,30 @@ const peopleFoods = (obj) => {
 } 
 
 console.log(peopleFoods(hwPerson))
+
+const iterateThroughList = function(anyList) {
+    for (let key in anyList){
+        console.log(`${key} contains:`)
+        if (Array.isArray(anyList[key])){
+            for (let example of anyList[key]){
+                if (typeof example === "object"){
+                    iterateThroughList(example)
+                }
+                else {
+                    console.log(`       ${example}`)
+                }
+            }
+        }
+        else if (typeof anyList[key] === "object"){
+            iterateThroughList(anyList[key])
+        }
+        else{
+            console.log(`       ${anyList[key]}`)
+        }
+    }
+}
+
+iterateThroughList(hwPerson);
 
 // Question 3
 /* Create a Promised based function that will check a string to determine if it's length is greater than 10.
