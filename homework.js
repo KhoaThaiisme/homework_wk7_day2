@@ -77,7 +77,7 @@ const hwPerson = {
     //     console.log(`${w} : ${v2}`)
     // }
     // clg
-} 
+// } 
 
 console.log(peopleFoods(hwPerson))
 
